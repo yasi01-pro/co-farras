@@ -26,10 +26,17 @@ class HomeController extends Controller
 
             'sejarah' => [
                 'Politeknik Caltex Riau didirikan sebagai hasil kerja sama antara Pemerintah Provinsi Riau dan PT Caltex Pacific Indonesia untuk memenuhi kebutuhan tenaga kerja terampil.',
-
                 'Seiring perkembangan zaman, Politeknik Caltex Riau terus meningkatkan kualitas pendidikan, kurikulum, serta fasilitas penunjang pembelajaran.',
-
                 'Saat ini, Politeknik Caltex Riau dikenal sebagai salah satu perguruan tinggi vokasi terbaik yang menghasilkan lulusan siap bersaing di dunia industri.'
+            ],
+
+            // ✅ DATA DAY 2 – PROGRAM STUDI
+            'prodi' => [
+                ['nama' => 'Sistem Informasi', 'status' => 'Unggulan'],
+                ['nama' => 'Teknik Informatika', 'status' => 'Reguler'],
+                ['nama' => 'Manajemen Informatika', 'status' => 'Reguler'],
+                ['nama' => 'Teknologi Rekayasa Perangkat Lunak', 'status' => 'Unggulan'],
+                ['nama' => 'Teknik Komputer', 'status' => 'Reguler'],
             ],
 
             'logo' => 'images/logo_pcr.png'
