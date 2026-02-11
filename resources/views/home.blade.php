@@ -92,8 +92,8 @@
     </section>
 
     <!-- ===== FOOTER ===== -->
-    <footer class="footer text-center">
+    {{-- <footer class="footer text-center">
         <p>© {{ date('Y') }} {{ $nama_kampus }} | Company Orientation</p>
-    </footer>
+    </footer> --}}
 
 @endsection
