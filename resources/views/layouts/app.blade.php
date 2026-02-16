@@ -27,28 +27,41 @@
                 </a>
 
                 <!-- TOGGLER -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
                     <span class="toggler-icon"></span>
                     <span class="toggler-icon"></span>
                     <span class="toggler-icon"></span>
                 </button>
 
                 <!-- MENU -->
-                <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse sub-menu-bar"
+                     id="navbarSupportedContent">
+
                     <ul class="navbar-nav ms-auto">
 
                         <li class="nav-item">
-                            <a class="{{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">
+                            <a class="{{ request()->is('/') ? 'active' : '' }}"
+                               href="{{ url('/') }}">
                                 Home
                             </a>
                         </li>
 
                         <li class="nav-item">
                             <a class="{{ request()->is('kunjungan') ? 'active' : '' }}"
-                                href="{{ route('kunjungan.form') }}">
+                               href="{{ route('kunjungan.form') }}">
                                 Kunjungan
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="{{ request()->is('kunjungan/list') ? 'active' : '' }}"
+                               href="{{ route('kunjungan.list') }}">
+                                List Kunjungan
                             </a>
                         </li>
 
@@ -69,6 +82,7 @@
                         </li>
 
                     </ul>
+
                 </div>
             </nav>
         </div>
@@ -91,5 +105,4 @@
     <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 
 </body>
-
 </html>

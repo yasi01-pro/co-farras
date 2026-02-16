@@ -12,3 +12,5 @@ Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/kunjungan', [KunjunganController::class, 'index'])->name('kunjungan.form');
 Route::post('/kunjungan', [KunjunganController::class, 'store'])->name('kunjungan.store');
+Route::get('/kunjungan/list', [KunjunganController::class, 'list'])
+    ->name('kunjungan.list');
