@@ -25,7 +25,8 @@
                                 </div>
                             @endif
 
-                            <form action="{{ route('kunjungan.store') }}" method="POST">
+                            {{-- IMPORTANT: enctype wajib untuk upload --}}
+                            <form action="{{ route('kunjungan.store') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
 
                                 {{-- Nama --}}
@@ -71,13 +72,26 @@
                                 </div>
 
                                 {{-- Tanggal --}}
-                                <div class="mb-4">
+                                <div class="mb-3">
                                     <label class="form-label">Tanggal Kunjungan</label>
                                     <input type="date" name="tanggal"
                                         class="form-control @error('tanggal') is-invalid @enderror"
                                         value="{{ old('tanggal') }}">
 
                                     @error('tanggal')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                {{-- Upload Dokumentasi --}}
+                                <div class="mb-4">
+                                    <label class="form-label">Upload Dokumentasi</label>
+                                    <input type="file" name="foto"
+                                        class="form-control @error('foto') is-invalid @enderror">
+
+                                    @error('foto')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                         </div>

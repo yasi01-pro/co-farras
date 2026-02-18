@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Kunjungan;
@@ -6,13 +7,17 @@ use Illuminate\Http\Request;
 
 class KunjunganController extends Controller
 {
-    // Tampilkan form
+    // =============================
+    // TAMPILKAN FORM
+    // =============================
     public function index()
     {
         return view('kunjungan');
     }
 
-    // Simpan data
+    // =============================
+    // SIMPAN DATA + UPLOAD FOTO
+    // =============================
     public function store(Request $request)
     {
         $request->validate([
@@ -20,20 +25,28 @@ class KunjunganController extends Controller
             'email'     => 'required|email|max:255',
             'institusi' => 'required|string|max:255',
             'tanggal'   => 'required|date',
+            'foto'      => 'required|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
+        // Simpan file ke storage/app/public/kunjungan
+        $path = $request->file('foto')->store('kunjungan', 'public');
+
+        // Simpan ke database
         Kunjungan::create([
             'nama'      => $request->nama,
             'email'     => $request->email,
             'institusi' => $request->institusi,
-            'tanggal'   => $request->tanggal, // ← INI WAJIB ADA
+            'tanggal'   => $request->tanggal,
+            'foto'      => $path,
         ]);
 
         return redirect()->route('kunjungan.form')
             ->with('success', 'Pendaftaran berhasil!');
     }
 
-    // Tampilkan list + pagination
+    // =============================
+    // LIST + PAGINATION
+    // =============================
     public function list()
     {
         $kunjungans = Kunjungan::latest()->paginate(10);

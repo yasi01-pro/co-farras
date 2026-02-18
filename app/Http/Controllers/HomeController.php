@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Kunjungan;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        // Ambil 5 kunjungan terbaru
+        $latestKunjungans = Kunjungan::latest()->take(5)->get();
+
         return view('home', [
             'nama_kampus' => 'Politeknik Caltex Riau',
             'slogan' => 'Excellence in Applied Technology',
@@ -30,7 +34,6 @@ class HomeController extends Controller
                 'Saat ini, Politeknik Caltex Riau dikenal sebagai salah satu perguruan tinggi vokasi terbaik yang menghasilkan lulusan siap bersaing di dunia industri.'
             ],
 
-            // ✅ DATA DAY 2 – PROGRAM STUDI
             'prodi' => [
                 ['nama' => 'Sistem Informasi', 'status' => 'Unggulan'],
                 ['nama' => 'Teknik Informatika', 'status' => 'Reguler'],
@@ -39,7 +42,10 @@ class HomeController extends Controller
                 ['nama' => 'Teknik Komputer', 'status' => 'Reguler'],
             ],
 
-            'logo' => 'images/logo_pcr.png'
+            'logo' => 'images/logo_pcr.png',
+
+            // 🔥 Tambahan baru
+            'latestKunjungans' => $latestKunjungans
         ]);
     }
 }

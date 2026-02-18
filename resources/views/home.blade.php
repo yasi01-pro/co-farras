@@ -90,6 +90,44 @@
             </div>
         </div>
     </section>
+    <!-- ============================= -->
+    <!-- 5 KUNJUNGAN TERBARU -->
+    <!-- ============================= -->
+
+    <section class="section" style="padding-top: 80px; padding-bottom: 100px;">
+        <div class="container">
+
+            <h2 class="text-center mb-5 fw-bold">
+                5 Kunjungan Terbaru
+            </h2>
+
+            <div class="row">
+
+                @forelse($latestKunjungans as $item)
+                    <div class="col-md-4 col-lg-3 mb-4">
+                        <div class="card shadow-sm border-0 h-100">
+
+                            <img src="{{ asset('storage/' . $item->foto) }}" class="card-img-top"
+                                style="height:200px; object-fit:cover;">
+
+                            <div class="card-body">
+                                <h6 class="fw-bold">{{ $item->nama }}</h6>
+                                <p class="mb-1">{{ $item->institusi }}</p>
+                                <small class="text-muted">
+                                    {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
+                                </small>
+                            </div>
+
+                        </div>
+                    </div>
+                @empty
+                    <p class="text-center">Belum ada data kunjungan.</p>
+                @endforelse
+
+            </div>
+
+        </div>
+    </section>
 
     <!-- ===== FOOTER ===== -->
     {{-- <footer class="footer text-center">

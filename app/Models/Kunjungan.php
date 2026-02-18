@@ -13,6 +13,7 @@ class Kunjungan extends Model
         'email',
         'institusi',
         'tanggal',
+        'foto',
     ];
 
 }
